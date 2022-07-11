@@ -1,0 +1,8 @@
+h1.text-xl.font-semibold.text-center.decoration-8.decoration-yellow-300.underline.underline-offset-2
+  = "I'm #{@teddy.name}. Buy me!"
+
+div.mt-24.w-1/2.mx-auto.rounded-xl.shadow.overflow-hidden
+  = image_tag @teddy.photo_url, class: "h-96 object-cover w-full"
+  div.p-8
+    h3.decoration-4.decoration-yellow-300.underline.text-lg.font-medium = @teddy.name
+    p.mt-4 Hello, my name is #{@teddy.name}, I'm a #{@teddy.category.name} teddy.
