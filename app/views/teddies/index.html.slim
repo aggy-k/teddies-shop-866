@@ -6,6 +6,7 @@ div class="grid grid-cols-3 gap-10 w-3/4 mx-auto mt-16"
       div.absolute.top-2.right-2.px-2.py-1.bg-yellow-300.text-black.rounded-full.text-xs
         = teddy.category.name
       = image_tag teddy.photo_url, class: "object-cover h-48 w-full"
-      div.p-4
-        = teddy.name
+      div.p-4.flex.items-center.justify-between.w-full
+        p = teddy.name
+        p = humanized_money_with_symbol(teddy.price)
 

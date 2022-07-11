@@ -4,5 +4,11 @@ h1.text-xl.font-semibold.text-center.decoration-8.decoration-yellow-300.underlin
 div.mt-24.w-1/2.mx-auto.rounded-xl.shadow.overflow-hidden
   = image_tag @teddy.photo_url, class: "h-96 object-cover w-full"
   div.p-8
-    h3.decoration-4.decoration-yellow-300.underline.text-lg.font-medium = @teddy.name
-    p.mt-4 Hello, my name is #{@teddy.name}, I'm a #{@teddy.category.name} teddy.
+    div.flex.justify-between
+      div
+        h3.decoration-4.decoration-yellow-300.underline.text-lg.font-medium = @teddy.name
+        p.mt-4 Hello, my name is #{@teddy.name}, I'm a #{@teddy.category.name} teddy.
+      div
+        p.text-right = humanized_money_with_symbol(@teddy.price)
+    div.w-full.flex.justify-end
+      = link_to 'Buy', orders_path(teddy_id: @teddy.id), method: :post, class: "bg-yellow-300 uppercase text-lg font-medium px-5 py-1 rounded-xl shadow mt-4"

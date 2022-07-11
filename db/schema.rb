@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_11_061238) do
+ActiveRecord::Schema.define(version: 2022_07_11_070244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "teddy_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.jsonb "payment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -28,6 +37,8 @@ ActiveRecord::Schema.define(version: 2022_07_11_061238) do
     t.string "photo_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "CNY", null: false
     t.index ["category_id"], name: "index_teddies_on_category_id"
   end
 

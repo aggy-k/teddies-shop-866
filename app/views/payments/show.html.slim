@@ -1,0 +1,8 @@
+h1.text-xl.font-semibold.text-center.decoration-8.decoration-yellow-300.underline.underline-offset-2 Complete Payment
+
+div class="w-1/3 mx-auto mt-16 flex flex-col items-center"
+  = @qr.html_safe
+  / = image_tag @qr, class: "w-full"
+
+  div.mt-8
+    = link_to 'Done' ,orders_path, class: "bg-yellow-300 uppercase px-4 py-1 rounded-xl"

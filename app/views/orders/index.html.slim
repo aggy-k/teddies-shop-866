@@ -1,0 +1,7 @@
+h1.text-xl.font-semibold.text-center.decoration-8.decoration-yellow-300.underline.underline-offset-2 Orders
+
+div.mt-24.w-1/2.mx-auto.p-4
+  - @orders.each do |order|
+    div.flex.justify-between.items-center
+      p = "#{order.teddy_sku} #{order.updated_at.in_time_zone('Beijing')}"
+      p class="#{order.state == 'pending' ? 'text-yellow-400' : 'text-green-500'}" = order.state
